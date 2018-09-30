@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php
+
 // 1-2-3-4 tasks
 class Item
 {
@@ -37,12 +38,13 @@ class Item
   }
 }
 
-$item1 = new Item("1","vodka","the best russian drink", "$100"); /*на самом деле я не люблю водку)))*/
+$item1 = new Item("1", "vodka", "the best russian drink", "$100"); /*на самом деле я не люблю водку)))*/
 
-class ItemImage extends Item {
- public $image;
+class ItemImage extends Item
+{
+  public $image;
 
- public function view()
+  public function view()
   {
     echo "<div id='item$this->id'>
             <div>$this->name</div>
@@ -51,6 +53,7 @@ class ItemImage extends Item {
             <span>Цена: $this->price</span>
           </div>";
   }
+
   public function __construct($id, $name, $image, $description, $price)
   {
     $this->id = $id;
@@ -61,15 +64,19 @@ class ItemImage extends Item {
     $this->view();
   }
 }
-$item2 = new ItemImage("2","Stolichnaya", "https://av.ru/product/he9/h27/8844342984734.jpg"  ,"the best russian drink", "$200");
+
+$item2 = new ItemImage("2", "Stolichnaya", "https://av.ru/product/he9/h27/8844342984734.jpg", "the best russian drink", "$200");
 
 //5 task
-class A {
-  public function foo() {
+class A
+{
+  public function foo()
+  {
     static $x = 0;
     echo ++$x;
   }
 }
+
 $a1 = new A();
 $a2 = new A();
 $a1->foo(); // 1
@@ -78,14 +85,19 @@ $a1->foo(); // 3
 $a2->foo(); // 4  из-за того, что переменная статическая и наследует все присвоенные ей результаты
 
 // 6 task
-class B {
-  public function foo() {
+class B
+{
+  public function foo()
+  {
     static $x = 0;
     echo ++$x;
   }
 }
-class C extends B {
+
+class C extends B
+{
 }
+
 $b1 = new B();
 $c1 = new C();
 $b1->foo(); // 1
